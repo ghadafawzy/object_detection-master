@@ -78,6 +78,7 @@ class _ObjectDetectorView extends State<ObjectDetectorView> {
     // uncomment next lines if you want to use a local model
     // make sure to add tflite model to assets/ml
     await flutterTts.awaitSpeakCompletion(true);
+    await flutterTts.setLanguage("ar");
     await flutterTts.setSpeechRate(0.6);
     final path = 'assets/ml/object_labeler.tflite';
     final modelPath = await _getModel(path);
@@ -170,7 +171,7 @@ Future<void> runTextToSpeechPlur(List<Label> string) async {
   if (toRead.isEmpty) {
     return;
   } else {
-    String toReadString = toRead.join("and");
+    String toReadString = toRead.join("و");
     print(toReadString);
     var translation = await translator.translate(toReadString, to: 'ar');
     print (translation);
